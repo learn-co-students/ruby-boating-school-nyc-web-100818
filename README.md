@@ -41,3 +41,12 @@ test1= spongebob.add_boating_test("Don't Crash 101", "pending", puff)
 
 
 ![](https://media.giphy.com/media/GwYxLtDaB3Wso/giphy.gif)
+
+
+Various Notes
+
+ - If you create a test using the method in the Student class, you dont have access to it unless you assign it to a variable
+
+ -All of the methods work best (or, only work) for the most part with variables i.e. tim = Student.new("tim")
+
+ -Functionality for string matching could be added
