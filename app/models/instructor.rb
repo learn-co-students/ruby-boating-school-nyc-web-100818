@@ -20,7 +20,7 @@ class Instructor
   end
 
   #very simple and should probably check for the existence of a student and test
-  #this is not passing in the actual names, but rather an instance object of
+  #arguments are not strings of names, but rather an instance object of
   #Student and BoatingTest class
   def self.pass_student(first_name, test_name)
       test_name.test_status = "passed"

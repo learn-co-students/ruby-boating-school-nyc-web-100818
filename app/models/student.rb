@@ -14,8 +14,7 @@ class Student
     @@all
   end
 
-  #this returns a student object, and could be useful in using string matching
-  #for the Instructor methods
+  #this returns a student object, and may be useful for simpler instructor methods
   def self.find_student(name)
     @@all.find {|student| student.first_name == name}
   end

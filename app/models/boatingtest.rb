@@ -18,6 +18,7 @@ class BoatingTest
     @@all
   end
 
+  #returns array of tests associated with a Student object
   def self.student_tests(student_name)
     @@all.select {|tests| tests.first_name == student_name}
   end
@@ -31,5 +32,3 @@ class BoatingTest
   end
 
 end
-
-#access first name of student associated with a tests
