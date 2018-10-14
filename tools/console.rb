@@ -19,6 +19,7 @@ alex = Instructor.new("Alex")
 midterm_tim = BoatingTest.new(tim, "midterm - tim", alex)
 final_tim = BoatingTest.new(tim, "final - tim", alex)
 
+
 midterm_eric = BoatingTest.new(eric, "midterm - eric", alex)
 final_eric = BoatingTest.new(eric, "final - eric", alex)
 

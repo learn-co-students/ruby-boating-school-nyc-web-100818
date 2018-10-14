@@ -14,31 +14,38 @@ class Instructor
     @@all
   end
 
-  #returns an array of all tests belonging to an instructor
+  # returns an array of all tests belonging to an instructor
   def list
     BoatingTest.all.select {|test| test.instructor == self.instructor}
   end
 
-  #very simple and should probably check for the existence of a student and test
-  #arguments are not strings of names, but rather an instance object of
-  #Student and BoatingTest class
-  def self.pass_student(first_name, test_name)
-      test_name.test_status = "passed"
+  def self.pass_student(student, exam_name)
+    if self.find_student_by_name(student) == nil || BoatingTest.find_test_by_name(exam_name) == nil
+      "Missing student and/or test data, which test would you like to mark and for whom?"
+    else
+      BoatingTest.find_test_by_name(exam_name).test_status = "passed"
+    end
   end
 
-  def self.fail_student(first_name, test_name)
-      test_name.test_status = "failed"
+  def self.fail_student(student, exam_name)
+    if self.find_student_by_name(student) == nil || BoatingTest.find_test_by_name(exam_name) == nil
+      "Missing student and/or test data, which test would you like to mark and for whom?"
+    else
+      BoatingTest.find_test_by_name(exam_name).test_status = "failed"
+    end
   end
 
+  # returns the student object
+  def self.find_student_by_name(name)
+      Student.all.find {|student| student.first_name == name}
+  end
 
-  #this could be a lot more complex based on completed vs. pending tests
-  #the argument it takes is not the class variable, but rather a student object
-  def self.student_grade_percentage(first_name)
-    total = first_name.tests.size
-    passed = first_name.passed.size
-    percentage = passed.to_f / total.to_f
-    percentage.to_f
+  def self.student_grade_percentage(name)
+    student = self.find_student_by_name(name)
+    total = student.tests.size
+    passed = student.passed.size
+    percentage = (passed.to_f / total.to_f) * 100
+    "#{name}'s grade percentage is #{percentage}%"
   end
 
 end
-#how does instructor access first name?

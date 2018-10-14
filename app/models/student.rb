@@ -14,28 +14,26 @@ class Student
     @@all
   end
 
-  #this returns a student object, and may be useful for simpler instructor methods
+  # this returns a student object, and may be useful for simpler instructor methods
   def self.find_student(name)
     @@all.find {|student| student.first_name == name}
   end
 
-  #a student can acces their tests - this returns BoatingTest objects
+  # a student can acces their tests - this returns BoatingTest objects
   def tests
     BoatingTest.student_tests(self.first_name)
   end
 
-  #a student can access the tests they have passed
+  # a student can access the tests they have passed
   def passed
     self.tests.select {|test| test.test_status == "passed"}
   end
 
-  #return value for #passed and #failed are arrays of BoatingTest objects
+  # return value for #passed and #failed are arrays of BoatingTest objects
   def failed
       self.tests.select {|test| test.test_status == "failed"}
   end
 
-  #not easy to acces BoatingTests objects created with this method
-  #without assigning them to a variable
   def add_boating_test(test_name, instructor)
     new_test = BoatingTest.new(self, test_name, instructor)
   end
