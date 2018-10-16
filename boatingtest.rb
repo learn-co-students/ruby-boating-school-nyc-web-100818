@@ -5,8 +5,8 @@ class BoatingTest
   @@all = []
 
   def initialize(student, test_name, test_status, instructor)
-    @test_name = test_name
     @student = student
+    @test_name = test_name
     @test_status = test_status
     @instructor = instructor
     @@all << self
@@ -16,4 +16,5 @@ class BoatingTest
     @@all
   end
 
-end
+
+end #end of class
